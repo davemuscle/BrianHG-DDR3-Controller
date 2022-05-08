@@ -240,12 +240,12 @@ generate
          if (INTERFACE_SPEED[0]!="F" && INTERFACE_SPEED[0]!="f" &&
              INTERFACE_SPEED[0]!="H" && INTERFACE_SPEED[0]!="h" &&
              INTERFACE_SPEED[0]!="Q" && INTERFACE_SPEED[0]!="q"     )  initial begin
-$warning("********************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
-$warning("************************************************************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ parameter .INTERFACE_SPEED(\"%s\") is not supported. ***",INTERFACE_SPEED);
-$warning("*** Only \"Full\", \"Half\", and \"Quarter\" speeds are supported.                   ***");
-$warning("************************************************************************************");
+$display("********************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
+$display("************************************************************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ parameter .INTERFACE_SPEED(\"%s\") is not supported. ***",INTERFACE_SPEED);
+$display("*** Only \"Full\", \"Half\", and \"Quarter\" speeds are supported.                   ***");
+$display("************************************************************************************");
 $error;
 $stop;
 end
@@ -256,12 +256,12 @@ endgenerate
 // **********************************************
 generate
          if (BANK_ROW_ORDER!="ROW_BANK_COL" && BANK_ROW_ORDER!="BANK_ROW_COL") initial begin
-$warning("********************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
-$warning("****************************************************************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ parameter .BANK_ROW_ORDER(\"%s\") is not supported. ***",BANK_ROW_ORDER);
-$warning("*** Only \"ROW_BANK_COL\" or \"BANK_ROW_COL\" are supported.                             ***");
-$warning("****************************************************************************************");
+$display("********************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
+$display("****************************************************************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ parameter .BANK_ROW_ORDER(\"%s\") is not supported. ***",BANK_ROW_ORDER);
+$display("*** Only \"ROW_BANK_COL\" or \"BANK_ROW_COL\" are supported.                             ***");
+$display("****************************************************************************************");
 $error;
 $stop;
 end
@@ -271,12 +271,12 @@ endgenerate
 // **********************************************
 generate
          if (DDR3_WIDTH_CAS!=10 && DDR3_WIDTH_CAS!=11) initial begin
-$warning("********************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
-$warning("****************************************************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ parameter .DDR3_WIDTH_CAS(%d) is not supported. ***",5'(DDR3_WIDTH_CAS));
-$warning("*** Only 10 or 11 are supported.                                         ***");
-$warning("****************************************************************************");
+$display("********************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
+$display("****************************************************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ parameter .DDR3_WIDTH_CAS(%d) is not supported. ***",5'(DDR3_WIDTH_CAS));
+$display("*** Only 10 or 11 are supported.                                         ***");
+$display("****************************************************************************");
 $error;
 $stop;
 end
@@ -286,12 +286,12 @@ endgenerate
 // **********************************************
 generate
          if (DDR3_WIDTH_ADDR<13 && DDR3_WIDTH_ADDR>17) initial begin
-$warning("********************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
-$warning("****************************************************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ parameter .DDR3_WIDTH_ADDR(%d) is not supported. ***",5'(DDR3_WIDTH_ADDR));
-$warning("*** Only 13 through 17 are supported.                                         ***");
-$warning("****************************************************************************");
+$display("********************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
+$display("****************************************************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ parameter .DDR3_WIDTH_ADDR(%d) is not supported. ***",5'(DDR3_WIDTH_ADDR));
+$display("*** Only 13 through 17 are supported.                                         ***");
+$display("****************************************************************************");
 $error;
 $stop;
 end
@@ -301,12 +301,12 @@ endgenerate
 // **********************************************
 generate
          if (DDR3_WIDTH_BANK!=3) initial begin
-$warning("********************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
-$warning("*****************************************************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ parameter .DDR3_WIDTH_BANK(%d) is not supported. ***",5'(DDR3_WIDTH_BANK));
-$warning("*** Only 3 is supported.                                                  ***");
-$warning("*****************************************************************************");
+$display("********************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
+$display("*****************************************************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ parameter .DDR3_WIDTH_BANK(%d) is not supported. ***",5'(DDR3_WIDTH_BANK));
+$display("*** Only 3 is supported.                                                  ***");
+$display("*****************************************************************************");
 $error;
 $stop;
 end
@@ -391,12 +391,12 @@ end else initial begin
 // ******************************************************************************************************************************************
 // ***  Unknown FPGA Vendor **************************************************************************************************************
 // ******************************************************************************************************************************************
-$warning("********************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
-$warning("********************************************************************************");
-$warning("*** BrianHG_DDR3_PHY_SEQ parameter .FPGA_VENDOR(\"%s\") is not supported. ***",FPGA_VENDOR);
-$warning("*** Only supported vendors \"Altera\" or \"Intel\".                              ***");
-$warning("********************************************************************************");
+$display("********************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ PARAMETER ERROR ***");
+$display("********************************************************************************");
+$display("*** BrianHG_DDR3_PHY_SEQ parameter .FPGA_VENDOR(\"%s\") is not supported. ***",FPGA_VENDOR);
+$display("*** Only supported vendors \"Altera\" or \"Intel\".                              ***");
+$display("********************************************************************************");
 $error;
 $stop;
 end
@@ -466,7 +466,6 @@ logic READ_CAL_PAT_t,READ_CAL_PAT_v,READ_CAL_PAT_s=0;
 // This logic helps transfer the read data & toggle for FMAX help.
 logic PHY_RDATA_t_dly;
 always @(posedge DDR_CLK_50) PHY_RDATA_t_dly <= PHY_RDATA_t ;
-
 
 BrianHG_DDR3_CMD_SEQUENCER #(
 .USE_TOGGLE_ENA      ( USE_TOGGLE_CONTROLS ),     // When enabled, the (IN_ENA/IN_BUSY) & (OUT_READ_READY) toggle state to define the next command.

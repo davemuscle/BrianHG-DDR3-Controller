@@ -91,46 +91,46 @@ generate
 // **********************************************
 // ***  Unknown INTERFACE_SPEED *****************
 // **********************************************
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("********************************************************************************");
-$warning("*** BrianHG_DDR3_PLL parameter .INTERFACE_SPEED(\"%s\") is not supported. ***",INTERFACE_SPEED);
-$warning("*** Only \"Full\", \"Half\", and \"Quarter\" speeds are supported.           ***");
-$warning("********************************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("********************************************************************************");
+$display("*** BrianHG_DDR3_PLL parameter .INTERFACE_SPEED(\"%s\") is not supported. ***",INTERFACE_SPEED);
+$display("*** Only \"Full\", \"Half\", and \"Quarter\" speeds are supported.           ***");
+$display("********************************************************************************");
 $error;
 $stop;
 end
 
 if (RCF == 0 )  initial begin
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("*******************************************************************************");
-$warning("*** BrianHG_DDR3_PLL parameter .CLK_KHZ_IN(\"%s\") is not supported with  ***",12'(CLK_KHZ_IN));
-$warning("*** Cyclone V PLL.  Only 25000, 50000, 75000, 100000, 125000, 150000 KHz    ***");
-$warning("*** are supported.                                                          ***");
-$warning("*******************************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("*******************************************************************************");
+$display("*** BrianHG_DDR3_PLL parameter .CLK_KHZ_IN(\"%s\") is not supported with  ***",12'(CLK_KHZ_IN));
+$display("*** Cyclone V PLL.  Only 25000, 50000, 75000, 100000, 125000, 150000 KHz    ***");
+$display("*** are supported.                                                          ***");
+$display("*******************************************************************************");
 $error;
 $stop;
 end
 
 if (CLK_IN_DIV!=2 && CLK_IN_DIV!=4 && CLK_IN_DIV!=6 && CLK_IN_DIV!=8 && CLK_IN_DIV!=10 && CLK_IN_DIV!=12)  initial begin
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("**************************************************************************");
-$warning("*** BrianHG_DDR3_PLL parameter .CLK_IN_DIV(%d) is not supported.     ***",8'(CLK_IN_DIV));
-$warning("*** Only a divider setting of 2,4,6,8,10, or 12 are allowed.           ***");
-$warning("**************************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("**************************************************************************");
+$display("*** BrianHG_DDR3_PLL parameter .CLK_IN_DIV(%d) is not supported.     ***",8'(CLK_IN_DIV));
+$display("*** Only a divider setting of 2,4,6,8,10, or 12 are allowed.           ***");
+$display("**************************************************************************");
 $error;
 $stop;
 end
 
 if (CLK_IN_MULT[0] || (CLK_IN_MULT<20) || (CLK_IN_MULT>48) )  initial begin
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("**************************************************************************");
-$warning("*** BrianHG_DDR3_PLL parameter .CLK_IN_MULT(%d) is not supported.    ***",8'(CLK_IN_MULT));
-$warning("*** Only even multiplier numbers between 20 and 48 are allowed.        ***");
-$warning("**************************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("**************************************************************************");
+$display("*** BrianHG_DDR3_PLL parameter .CLK_IN_MULT(%d) is not supported.    ***",8'(CLK_IN_MULT));
+$display("*** Only even multiplier numbers between 20 and 48 are allowed.        ***");
+$display("**************************************************************************");
 $error;
 $stop;
 end
@@ -163,24 +163,26 @@ localparam int PLL1_inps   = (1.0E9 / PLL1_in_KHz) ;
 generate
 if (DDR_TRICK_MTPS_CAP!=0 ) initial begin
 if (DDR_TRICK_MTPS_CAP>=(PLL1_OUT_TRUE_KHZ/500)) begin
-$warning("*****************************");
-$warning("*** BrianHG_DDR3_PLL Info ***");
-$warning("************************************************************************");
-$warning("*** BrianHG_DDR3_PLL parameter .DDR_TRICK_MTPS_CAP setting of (%d) ***",12'(DDR_TRICK_MTPS_CAP));
-$warning("*** was not used since the DDR MTPS frequency is only %d MTPS.     ***",12'(PLL1_OUT_TRUE_KHZ/500));
-$warning("************************************************************************");
+$display("*****************************");
+$display("*** BrianHG_DDR3_PLL Info ***");
+$display("************************************************************************");
+$display("*** BrianHG_DDR3_PLL parameter .DDR_TRICK_MTPS_CAP setting of (%d) ***",12'(DDR_TRICK_MTPS_CAP));
+$display("*** was not used since the DDR MTPS frequency is only %d MTPS.     ***",12'(PLL1_OUT_TRUE_KHZ/500));
+$display("************************************************************************");
+$warning;
 end else begin
-$warning("********************************");
-$warning("*** BrianHG_DDR3_PLL WARNING ***");
-$warning("*******************************************************************************");
-$warning("*** BrianHG_DDR3_PLL parameter .DDR_TRICK_MTPS_CAP setting of (%d)        ***",12'(DDR_TRICK_MTPS_CAP));
-$warning("*** is in use since the true DDR3_DQ MTPS frequency is higher at %d MTPS. ***",12'(PLL1_OUT_TRUE_KHZ/500));
-$warning("*** %s is being falsely instructed that the DDR3 clock is running      ***",FPGA_VENDOR);
-$warning("*** slower to allow full compilation for DDR_DQ/DQS port speed limit.  The  ***");
-$warning("*** timing report will only be accurate as long as the PLL source clock has ***");
-$warning("*** the proper frequency set in the .sdc file.  Make sure this is EXACTLY   ***");
-$warning("*** what you want to do.  Proper design functionality is not guaranteed.    ***");
-$warning("*******************************************************************************");
+$display("********************************");
+$display("*** BrianHG_DDR3_PLL WARNING ***");
+$display("*******************************************************************************");
+$display("*** BrianHG_DDR3_PLL parameter .DDR_TRICK_MTPS_CAP setting of (%d)        ***",12'(DDR_TRICK_MTPS_CAP));
+$display("*** is in use since the true DDR3_DQ MTPS frequency is higher at %d MTPS. ***",12'(PLL1_OUT_TRUE_KHZ/500));
+$display("*** %s is being falsely instructed that the DDR3 clock is running      ***",FPGA_VENDOR);
+$display("*** slower to allow full compilation for DDR_DQ/DQS port speed limit.  The  ***");
+$display("*** timing report will only be accurate as long as the PLL source clock has ***");
+$display("*** the proper frequency set in the .sdc file.  Make sure this is EXACTLY   ***");
+$display("*** what you want to do.  Proper design functionality is not guaranteed.    ***");
+$display("*******************************************************************************");
+$warning;
 end
 end
 endgenerate
@@ -332,7 +334,7 @@ if (FPGA_FAMILY!="Cyclone V") begin
                 .icdrclk (),               .locked (PLL_LOCKED),   .pfdena (1'b1),      .phasedone (phase_done), .phasestep (phase_step),
                 .phaseupdown (phase_updn), .pllena (1'b1),         .scanaclr (1'b0),    .scanclk (phase_sclk),   .scanclkena (1'b1),
                 .scandata (1'b0),          .scandataout (),        .scandone (),        .scanread (1'b0),        .scanwrite (1'b0),
-                .sclkout0 (),              .sclkout1 (),           .vcooverrange (),    .vcounderrange (),       .phasecounterselect (3'd4));
+                .sclkout0 (),              .sclkout1 (),           .vcooverrange (),    .vcounderrange (),       .phasecounterselect (3'd4), .comparator());
 
 end else begin
 
@@ -349,12 +351,12 @@ end else begin
 // ***  Cyclone V does not support DDR_TRICK_MTPS_CAP ************
 // ***************************************************************
 if (DDR_TRICK_MTPS_CAP != 0 )  initial begin
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("***************************************************************");
-$warning("*** BrianHG_DDR3_PLL parameter .DDR_TRICK_MTPS_CAP must be  ***");
-$warning("*** set to 0 when using a Cyclone V PLL.                    ***");
-$warning("***************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("***************************************************************");
+$display("*** BrianHG_DDR3_PLL parameter .DDR_TRICK_MTPS_CAP must be  ***");
+$display("*** set to 0 when using a Cyclone V PLL.                    ***");
+$display("***************************************************************");
 $error;
 $stop;
 end
@@ -427,13 +429,13 @@ localparam  C025 = (PLL1_OUT_TRUE_KHZ==600000) ? "150.000000 MHz" :
 // ***  Unknown Cyclone V output frequency ************
 // ****************************************************
 if (C100 == 0 )  initial begin
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("************************************************************************************");
-$warning("*** BrianHG_DDR3_PLL Cyclone V output frequency %d MHz is not supported.       ***",12'(PLL1_OUT_TRUE_KHZ/1000));
-$warning("*** Please change the .CLK_IN_MULT and .CLK_IN_DIV parameters so that the output ***");
-$warning("*** frequency is 250, 275, 300, 325, 350, 375, 400, 425, 450, 475 or 500 MHz.    ***");
-$warning("************************************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("************************************************************************************");
+$display("*** BrianHG_DDR3_PLL Cyclone V output frequency %d MHz is not supported.       ***",12'(PLL1_OUT_TRUE_KHZ/1000));
+$display("*** Please change the .CLK_IN_MULT and .CLK_IN_DIV parameters so that the output ***");
+$display("*** frequency is 250, 275, 300, 325, 350, 375, 400, 425, 450, 475 or 500 MHz.    ***");
+$display("************************************************************************************");
 $error;
 $stop;
 end
@@ -448,23 +450,23 @@ localparam W_CPMP = (DDR3_WDQ_PHASE==0  ) ? 0 :
                     (DDR3_WDQ_PHASE==315) ? 7 : 8 ;
 
 if (W_CPMP == 8 )  initial begin
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("**************************************************************************");
-$warning("*** BrianHG_DDR3_PLL Cyclone V .DDR3_WDQ_PHASE(%d) is not supported. ***",10'(DDR3_WDQ_PHASE));
-$warning("*** Only 0, 45, 90, 135, 180, 225, 270, 315 deg. are allowed.          ***");
-$warning("**************************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("**************************************************************************");
+$display("*** BrianHG_DDR3_PLL Cyclone V .DDR3_WDQ_PHASE(%d) is not supported. ***",10'(DDR3_WDQ_PHASE));
+$display("*** Only 0, 45, 90, 135, 180, 225, 270, 315 deg. are allowed.          ***");
+$display("**************************************************************************");
 $error;
 $stop;
 end
 
 if (DDR3_RDQ_PHASE != 0 )  initial begin
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("**************************************************************************");
-$warning("*** BrianHG_DDR3_PLL Cyclone V .DDR3_RDQ_PHASE(%d) is not supported. ***",10'(DDR3_RDQ_PHASE));
-$warning("*** Only 0 deg. is allowed.                                            ***");
-$warning("**************************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("**************************************************************************");
+$display("*** BrianHG_DDR3_PLL Cyclone V .DDR3_RDQ_PHASE(%d) is not supported. ***",10'(DDR3_RDQ_PHASE));
+$display("*** Only 0 deg. is allowed.                                            ***");
+$display("**************************************************************************");
 $error;
 $stop;
 end
@@ -562,12 +564,12 @@ end else initial begin
 // ******************************************************************************************************************************************
 // ***  Unknown FPGA Vendor **************************************************************************************************************
 // ******************************************************************************************************************************************
-$warning("****************************************");
-$warning("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
-$warning("****************************************************************************");
-$warning("*** BrianHG_DDR3_PLL parameter .FPGA_VENDOR(\"%s\") is not supported. ***",FPGA_VENDOR);
-$warning("*** Only supported vendors \"Altera\" or \"Intel\".                          ***");
-$warning("****************************************************************************");
+$display("****************************************");
+$display("*** BrianHG_DDR3_PLL PARAMETER ERROR ***");
+$display("****************************************************************************");
+$display("*** BrianHG_DDR3_PLL parameter .FPGA_VENDOR(\"%s\") is not supported. ***",FPGA_VENDOR);
+$display("*** Only supported vendors \"Altera\" or \"Intel\".                          ***");
+$display("****************************************************************************");
 $error;
 $stop;
 // ********************************
@@ -588,20 +590,21 @@ assign     CMD_CLK     = PLL1_clk_out[CMD_CLK_SEL] ;
 
 generate
 initial begin
-$warning("*****************************");
-$warning("*** BrianHG_DDR3_PLL Info ***");
-$warning("*********************************************");
-$warning("***      CLK_IN           = %d MHz.     ***",12'(CLK_KHZ_IN/1000));
-$warning("***      DDR3_RDQ/WDQ     = %d MTPS.    ***",12'(PLL1_OUT_TRUE_KHZ/500));
-$warning("***      DDR3_CLK/RDQ/WDQ = %d MHz.     ***",12'(PLL1_OUT_TRUE_KHZ/1000));
-$warning("***      DDR3_WDQ_PHASE   = %d degrees. ***",10'(DDR3_WDQ_PHASE));
-$warning("*** True DDR3_WDQ_PHASE   =  %s ps.     ***",DDR3_WDQ_PHASE_pss);
-$warning("***      DDR3_RDQ_PHASE   = %d degrees. ***",10'(DDR3_RDQ_PHASE));
-$warning("*** True DDR3_RDQ_PHASE   =  %s ps.     ***",DDR3_RDQ_PHASE_pss);
-$warning("***      CMD_CLK          = %d MHz.     ***",12'(PLL1_OUT_CMD_CLK_KHZ/1000));
-$warning("***      DDR3_CLK_50      = %d MHz.     ***",12'(PLL1_OUT_TRUE_KHZ/2000));
-$warning("***      DDR3_CLK_25      = %d MHz.     ***",12'(PLL1_OUT_TRUE_KHZ/4000));
-$warning("*********************************************");
+$display("*****************************");
+$display("*** BrianHG_DDR3_PLL Info ***");
+$display("*********************************************");
+$display("***      CLK_IN           = %d MHz.     ***",12'(CLK_KHZ_IN/1000));
+$display("***      DDR3_RDQ/WDQ     = %d MTPS.    ***",12'(PLL1_OUT_TRUE_KHZ/500));
+$display("***      DDR3_CLK/RDQ/WDQ = %d MHz.     ***",12'(PLL1_OUT_TRUE_KHZ/1000));
+$display("***      DDR3_WDQ_PHASE   = %d degrees. ***",10'(DDR3_WDQ_PHASE));
+$display("*** True DDR3_WDQ_PHASE   =  %s ps.     ***",DDR3_WDQ_PHASE_pss);
+$display("***      DDR3_RDQ_PHASE   = %d degrees. ***",10'(DDR3_RDQ_PHASE));
+$display("*** True DDR3_RDQ_PHASE   =  %s ps.     ***",DDR3_RDQ_PHASE_pss);
+$display("***      CMD_CLK          = %d MHz.     ***",12'(PLL1_OUT_CMD_CLK_KHZ/1000));
+$display("***      DDR3_CLK_50      = %d MHz.     ***",12'(PLL1_OUT_TRUE_KHZ/2000));
+$display("***      DDR3_CLK_25      = %d MHz.     ***",12'(PLL1_OUT_TRUE_KHZ/4000));
+$display("*********************************************");
+$warning;
 end
 endgenerate
 

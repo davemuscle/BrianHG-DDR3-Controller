@@ -93,100 +93,100 @@ localparam int tCK = 1000000 / DDR3_CK_MHZ ; // Calculate the number of Picoseco
 // *********************************************************************
 generate
 if ( DDR3_CK_MHZ  < 250  ||  DDR3_CK_MHZ  > 1067 ) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("**************************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .DDR3_CK_MHZ (%d) is outside the permitted ***",13'(DDR3_CK_MHZ ));
-    $warning("*** range.  Only frequencies between 300 and 1067 are allowed.         ***");
-    $warning("**************************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("**************************************************************************");
+    $display("*** BrianHG_DDR3 parameter .DDR3_CK_MHZ (%d) is outside the permitted ***",13'(DDR3_CK_MHZ ));
+    $display("*** range.  Only frequencies between 300 and 1067 are allowed.         ***");
+    $display("**************************************************************************");
     $error;
     $stop;
     end
 
 if ( DDR3_SIZE_GB !=0  && DDR3_SIZE_GB !=1  && DDR3_SIZE_GB !=2  && DDR3_SIZE_GB !=4  && DDR3_SIZE_GB !=8 ) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("*****************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .DDR3_SIZE_GB(%d) is not known.   ***",8'(DDR3_SIZE_GB));
-    $warning("*** Only 1 GB, 2 GB, 4 GB, 8 GB, or 0 for 512 MB are allowed. ***");
-    $warning("*****************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("*****************************************************************");
+    $display("*** BrianHG_DDR3 parameter .DDR3_SIZE_GB(%d) is not known.   ***",8'(DDR3_SIZE_GB));
+    $display("*** Only 1 GB, 2 GB, 4 GB, 8 GB, or 0 for 512 MB are allowed. ***");
+    $display("*****************************************************************");
     $error;
     $stop;
     end
 
 if ( DDR3_ODT_RTT !=0  && DDR3_ODT_RTT !=20  && DDR3_ODT_RTT !=30  && DDR3_ODT_RTT !=40  && DDR3_ODT_RTT !=60 && DDR3_ODT_RTT !=120 ) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("*******************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .DDR3_ODT_RTT(%d) is not supported. ***",8'(DDR3_ODT_RTT));
-    $warning("*** Only 20,30,40,60,120 Ohm, or 0 for disable are allowed.     ***");
-    $warning("*******************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("*******************************************************************");
+    $display("*** BrianHG_DDR3 parameter .DDR3_ODT_RTT(%d) is not supported. ***",8'(DDR3_ODT_RTT));
+    $display("*** Only 20,30,40,60,120 Ohm, or 0 for disable are allowed.     ***");
+    $display("*******************************************************************");
     $error;
     $stop;
     end
 
 if ( DDR3_WIDTH_DQ !=8  && DDR3_WIDTH_DQ !=16 ) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("****************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .DDR3_WIDTH_DQ(%d) is not known. ***",8'(DDR3_WIDTH_DQ));
-    $warning("*** Only 8 bit and 16 bit DDR3 ram chips are supported.      ***");
-    $warning("****************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("****************************************************************");
+    $display("*** BrianHG_DDR3 parameter .DDR3_WIDTH_DQ(%d) is not known. ***",8'(DDR3_WIDTH_DQ));
+    $display("*** Only 8 bit and 16 bit DDR3 ram chips are supported.      ***");
+    $display("****************************************************************");
     $error;
     $stop;
     end
 
 if ( DDR3_RZQ !=34  && DDR3_RZQ !=40 ) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("***********************************************************");
-    $warning("*** BrianHG_DDR3 parameter .DDR3_RZQ(%d) is not known. ***",8'(DDR3_RZQ));
-    $warning("*** Only 34 Ohm or 40 Ohm are are supported.            ***");
-    $warning("***********************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("***********************************************************");
+    $display("*** BrianHG_DDR3 parameter .DDR3_RZQ(%d) is not known. ***",8'(DDR3_RZQ));
+    $display("*** Only 34 Ohm or 40 Ohm are are supported.            ***");
+    $display("***********************************************************");
     $error;
     $stop;
     end
 
 if ( DDR3_TEMP !=85  && DDR3_TEMP !=95 && DDR3_TEMP !=105 ) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .DDR3_TEMP(%d) is not known. ***",8'(DDR3_TEMP));
-    $warning("*** Only 85, 95, or 105 degrees Celsius are supported.   ***");
-    $warning("************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("************************************************************");
+    $display("*** BrianHG_DDR3 parameter .DDR3_TEMP(%d) is not known. ***",8'(DDR3_TEMP));
+    $display("*** Only 85, 95, or 105 degrees Celsius are supported.   ***");
+    $display("************************************************************");
     $error;
     $stop;
     end
 
 if ( f_WR !=0  && f_WR !=5  && f_WR !=6  && f_WR !=7  && f_WR !=8  && f_WR !=10  && f_WR !=12  && f_WR !=14  && f_WR !=16 ) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("************************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .f_WR(%d), Write Recovery is not allowed. ***",5'(f_WR));
-    $warning("*** Only use 5,6,7,8,10,12,14,16, or use 0 for Automatic.            ***");
-    $warning("************************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("************************************************************************");
+    $display("*** BrianHG_DDR3 parameter .f_WR(%d), Write Recovery is not allowed. ***",5'(f_WR));
+    $display("*** Only use 5,6,7,8,10,12,14,16, or use 0 for Automatic.            ***");
+    $display("************************************************************************");
     $error;
     $stop;
     end
 
 if ( f_CL !=0  && (f_CL < 5 || f_CL > 14 )) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("*********************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .f_CL(%d), CAS Latency is not allowed. ***",5'(f_CL));
-    $warning("*** Only use 5 thru 14, or use 0 for Automatic.                   ***");
-    $warning("*********************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("*********************************************************************");
+    $display("*** BrianHG_DDR3 parameter .f_CL(%d), CAS Latency is not allowed. ***",5'(f_CL));
+    $display("*** Only use 5 thru 14, or use 0 for Automatic.                   ***");
+    $display("*********************************************************************");
     $error;
     $stop;
     end
 
 if ( f_CWL !=0  && (f_CWL < 5 || f_CWL > 10 )) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("****************************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .f_CWL(%d), CAS Write Latency is not allowed. ***",5'(f_CWL));
-    $warning("*** Only use 5 thru 10, or use 0 for Automatic.                          ***");
-    $warning("****************************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("****************************************************************************");
+    $display("*** BrianHG_DDR3 parameter .f_CWL(%d), CAS Write Latency is not allowed. ***",5'(f_CWL));
+    $display("*** Only use 5 thru 10, or use 0 for Automatic.                          ***");
+    $display("****************************************************************************");
     $error;
     $stop;
     end
@@ -205,13 +205,13 @@ localparam bit [2:0]  DDR3_SG = 3'((DDR3_SPEED_GRADE == "1066") * 1 +
                                    (DDR3_SPEED_GRADE == "-093") * 5) ;
 generate
 if ( DDR3_SG == 0 ) initial begin
-    $warning("********************************************");
-    $warning("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
-    $warning("*******************************************************************************");
-    $warning("*** BrianHG_DDR3 parameter .DDR3_SPEED_GRADE(%s) is not known.            ***",DDR3_SPEED_GRADE);
-    $warning("*** Only 1066, 1333, 1600, 1866, 2133 MHz, or -187E, -15E, -125, -107, -093 ***");
-    $warning("*** are allowed.  See Micron DDR3 data-sheets.                              ***");
-    $warning("*******************************************************************************");
+    $display("********************************************");
+    $display("*** BrianHG_DDR3_GEN_tCK PARAMETER ERROR ***");
+    $display("*******************************************************************************");
+    $display("*** BrianHG_DDR3 parameter .DDR3_SPEED_GRADE(%s) is not known.            ***",DDR3_SPEED_GRADE);
+    $display("*** Only 1066, 1333, 1600, 1866, 2133 MHz, or -187E, -15E, -125, -107, -093 ***");
+    $display("*** are allowed.  See Micron DDR3 data-sheets.                              ***");
+    $display("*******************************************************************************");
     $error;
     $stop;
     end

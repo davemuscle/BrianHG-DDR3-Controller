@@ -301,12 +301,12 @@ output logic                         SEQ_refresh_hold       // Prevent refresh. 
 // **********************************************
 generate
          if (BANK_ROW_ORDER!="ROW_BANK_COL" && BANK_ROW_ORDER!="BANK_ROW_COL") initial begin
-$warning("**************************************************");
-$warning("*** BrianHG_DDR3_COMMANDER_v15 PARAMETER ERROR ***");
-$warning("**********************************************************************************************");
-$warning("*** BrianHG_DDR3_COMMANDER_v15 parameter .BANK_ROW_ORDER(\"%s\") is not supported. ***",BANK_ROW_ORDER);
-$warning("*** Only \"ROW_BANK_COL\" or \"BANK_ROW_COL\" are supported.                             ***");
-$warning("**********************************************************************************************");
+$display("**************************************************");
+$display("*** BrianHG_DDR3_COMMANDER_v15 PARAMETER ERROR ***");
+$display("**********************************************************************************************");
+$display("*** BrianHG_DDR3_COMMANDER_v15 parameter .BANK_ROW_ORDER(\"%s\") is not supported. ***",BANK_ROW_ORDER);
+$display("*** Only \"ROW_BANK_COL\" or \"BANK_ROW_COL\" are supported.                             ***");
+$display("**********************************************************************************************");
 $error;
 $stop;
 end
@@ -322,13 +322,13 @@ generate
              PORT_MLAYER_WIDTH[1]<2 || PORT_MLAYER_WIDTH[1]>16 ||
              PORT_MLAYER_WIDTH[2]<2 || PORT_MLAYER_WIDTH[2]>16 ||
              PORT_MLAYER_WIDTH[3]<2 || PORT_MLAYER_WIDTH[3]>16     ) initial begin
-$warning("**************************************************");
-$warning("*** BrianHG_DDR3_COMMANDER_v15 PARAMETER ERROR ***");
-$warning("*****************************************************************************************************");
-$warning("*** BrianHG_DDR3_COMMANDER_v15 parameters .PORT_TOTAL(%d) and .PORT_MLAYER_WIDTH[%d,%d,%d,%d]     ***",6'(PORT_TOTAL),6'(PORT_MLAYER_WIDTH[0]),6'(PORT_MLAYER_WIDTH[1]),6'(PORT_MLAYER_WIDTH[2]),6'(PORT_MLAYER_WIDTH[3]) );
-$warning("*** have an error.  The .PORT_TOTAL() can only be between 1 and 16 while the .PORT_MLAYER_WIDTH[] ***");
-$warning("*** array can only have entry values between 2 and 16.                                            ***");
-$warning("*****************************************************************************************************");
+$display("**************************************************");
+$display("*** BrianHG_DDR3_COMMANDER_v15 PARAMETER ERROR ***");
+$display("*****************************************************************************************************");
+$display("*** BrianHG_DDR3_COMMANDER_v15 parameters .PORT_TOTAL(%d) and .PORT_MLAYER_WIDTH[%d,%d,%d,%d]     ***",6'(PORT_TOTAL),6'(PORT_MLAYER_WIDTH[0]),6'(PORT_MLAYER_WIDTH[1]),6'(PORT_MLAYER_WIDTH[2]),6'(PORT_MLAYER_WIDTH[3]) );
+$display("*** have an error.  The .PORT_TOTAL() can only be between 1 and 16 while the .PORT_MLAYER_WIDTH[] ***");
+$display("*** array can only have entry values between 2 and 16.                                            ***");
+$display("*****************************************************************************************************");
 $error;
 $stop;
 end
@@ -495,13 +495,13 @@ localparam int  ML4_first_width =  ML3_total + ML3_extra ;   // Set the first ML
 //
 generate
          if (ML4_first_width!=1) initial begin
-$warning("**************************************************");
-$warning("*** BrianHG_DDR3_COMMANDER_v15 PARAMETER ERROR ***");
-$warning("*****************************************************************************************************");
-$warning("*** BrianHG_DDR3_COMMANDER_v15 parameters .PORT_TOTAL(%d) and .PORT_MLAYER_WIDTH[%d,%d,%d,%d]     ***",6'(PORT_TOTAL),6'(PORT_MLAYER_WIDTH[0]),6'(PORT_MLAYER_WIDTH[1]),6'(PORT_MLAYER_WIDTH[2]),6'(PORT_MLAYER_WIDTH[3]) );
-$warning("*** generate a tree with more than one final ML3 layer MUXes.  The MUX tree cannot be constructed ***");
-$warning("*** due to too many ports with not enough width of Y branches throughout the tree structure.      ***");
-$warning("*****************************************************************************************************");
+$display("**************************************************");
+$display("*** BrianHG_DDR3_COMMANDER_v15 PARAMETER ERROR ***");
+$display("*****************************************************************************************************");
+$display("*** BrianHG_DDR3_COMMANDER_v15 parameters .PORT_TOTAL(%d) and .PORT_MLAYER_WIDTH[%d,%d,%d,%d]     ***",6'(PORT_TOTAL),6'(PORT_MLAYER_WIDTH[0]),6'(PORT_MLAYER_WIDTH[1]),6'(PORT_MLAYER_WIDTH[2]),6'(PORT_MLAYER_WIDTH[3]) );
+$display("*** generate a tree with more than one final ML3 layer MUXes.  The MUX tree cannot be constructed ***");
+$display("*** due to too many ports with not enough width of Y branches throughout the tree structure.      ***");
+$display("*****************************************************************************************************");
 $error;
 $stop;
 end
